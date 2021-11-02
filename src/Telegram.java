@@ -1,6 +1,8 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Telegram {
 
@@ -31,6 +33,15 @@ public class Telegram {
         jButton.addActionListener(e -> {
             JButton source = (JButton) e.getSource();
             textArea.setText(m.append(messenge.getText() + '\n').toString());
+        });
+        messenge.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_ENTER:
+                        textArea.setText(m.append(messenge.getText() + '\n').toString());
+                        break;
+                }            }
         });
         mess.add(jButton);
         mainFrame.setVisible(true);
