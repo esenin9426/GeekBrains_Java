@@ -13,19 +13,9 @@
 public class Main {
 
     public static void main(String[] args) {
-	    Object[] party = new Object[3];
-	    Cat cat = new Cat("Tom");
-	    Robot robot = new Robot("Chappie");
-	    Men men = new Men("Max");
-
-	    party[0] = cat;
-	    party[1] = robot;
-	    party[2] = men;
-
-
-        for (int i = 0; i < party.length; i++) {
-            System.out.println(party[i]);
-        }
+		Cat cat = new Cat("Tom");
+		Robot robot = new Robot("Chappie");
+		Men men = new Men("Max");
 
     }
 }

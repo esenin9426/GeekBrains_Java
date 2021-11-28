@@ -1,22 +1,24 @@
-public class Robot {
+public class Robot{
 
-    private String name;
-    private Integer run = 1000000000;
-    private Integer jump = 200000000;
+    private String name = "No name";
+    private Integer run = 200000000;
+    private Integer jump = 10000000;
 
     public Robot(String name) {
         this.name = name;
     }
 
     public String getName() {
-        return name;
-    }
+        System.out.println(this.name);
+        return this.name;}
 
     public Integer getRun() {
-        return run;
+        System.out.println(this.name + " пробежал " + this.run);
+        return this.run;
     }
 
     public Integer getJump() {
-        return jump;
+        System.out.println(this.name + " прыгнул " + this.run);
+        return this.jump;
     }
 }
