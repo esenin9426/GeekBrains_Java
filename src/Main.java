@@ -1,5 +1,6 @@
 import javax.sound.midi.Soundbank;
 import java.lang.NullPointerException;
+
 public class Main {
 
 /*
@@ -12,37 +13,36 @@ public class Main {
     и вывести результат расчета.
 */
 
-    public static int CountArrayMethod(String[][] m) throws MyArrayDataException, MyArraySizeException{
-        if(m.length != 4 & m[3].length != 4){
-            throw new MyArraySizeException();}
+    public static int CountArrayMethod(String[][] m) throws MyArrayDataException, MyArraySizeException {
+        if (m.length != 4 || m[3].length != 4) {
+            throw new MyArraySizeException();
+        }
         Integer[][] i = new Integer[4][4];
         int cou = 0;
         for (int j = 0; j < m.length; j++) {
             for (int k = 0; k < m[0].length; k++) {
-                try{
-                    cou+= Integer.parseInt(m[j][k]);
-                }catch (NumberFormatException e){
-                    throw new MyArrayDataException();}
-                        System.out.println("MyArrayDataException");
-                    }
+                try {
+                    cou += Integer.parseInt(m[j][k]);
+                } catch (NumberFormatException e) {
+                    throw new MyArrayDataException();
                 }
-            return cou;}
+            }
+        }
+        return cou;
+    }
+
     public static void main(String[] args) {
-        String[][] arr = new String[][]{{"A", "1", "1", "1"},
+        String[][] arr = new String[][]{{"1", "1", "1", "1"},
                                         {"2", "2", "2", "2"},
                                         {"3", "3", "3", "3"},
                                         {"4", "4", "4", "4"}};
         try {
-            try {
-                int cou = CountArrayMethod(arr);
-                System.out.println(cou);
-            } catch (MyArraySizeException e) {
-                System.out.println("Array size is not as expected");
-            }
-        }
-        catch (MyArrayDataException e) {
+            int cou = CountArrayMethod(arr);
+            System.out.println(cou);
+        } catch (MyArraySizeException e) {
+            System.out.println("Array size is not as expected");
+        } catch (MyArrayDataException e) {
             System.out.println("The value is not as expected");
-            System.out.println("Exception " + e.i + "x" + e.j);
         }
     }
 }
