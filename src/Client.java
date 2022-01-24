@@ -29,18 +29,20 @@ public class Client {
         in = new DataInputStream(socket.getInputStream());
         out = new DataOutputStream(socket.getOutputStream());
 
-        new Thread(() -> {
-            while (true) {
-                try {
-                    String inboundMessage = in.readUTF();
-                    System.out.println(inboundMessage);
-                } catch (IOException ex) {
-                    System.out.println("Connection closed.");
-                    break;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        String inboundMessage = in.readUTF();
+                        if(inboundMessage.equals("end")) break;
+                        System.out.println(inboundMessage);
+                    } catch (IOException ex) {
+                        System.out.println("Connection closed.");
+                        break;
+                    }
                 }
-            }
-        })
-                .start();
+            }}).start();
 
 
         while (true) {

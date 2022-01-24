@@ -46,7 +46,7 @@ public class Server {
                 String message = readInboundMessage();
                 System.out.println("Inbound message detected...");
                 System.out.println("Message: " + message);
-                //sendOutboundMessage(message);
+                sendOutboundMessage(message);
             }
         } catch (MyServerException ex) {
             System.out.println("The client is gone away.");
